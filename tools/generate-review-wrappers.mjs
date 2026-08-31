@@ -53,7 +53,7 @@ await writeFile(join(root, 'index.html'), `<!doctype html>
 </head>
 <body data-artifact-kind="hub" data-artifact-id="review-hub">
   <div id="app"></div>
-  <script src="assets/mockup-hub.js?build=20260831b"></script>
+  <script src="assets/mockup-hub.js?build=20260831c"></script>
 </body>
 </html>
 `, 'utf8');
