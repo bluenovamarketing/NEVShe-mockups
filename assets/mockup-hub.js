@@ -6,7 +6,7 @@
   const id = body.dataset.artifactId;
   const version = body.dataset.version || '';
   const root = kind === 'hub' ? './' : '../../';
-  const img = (name) => `${root}assets/images/generated-v1/${name}`;
+  const img = (name) => new URL(`${root}assets/images/generated-v1/${name}`, window.location.href).href;
   const joinUrl = 'https://lp.constantcontactpages.com/ev/reg/c9zrcum';
   const notifyUrl = 'https://lp.constantcontactpages.com/sl/As6eGyf';
 

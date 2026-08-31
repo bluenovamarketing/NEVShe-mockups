@@ -121,6 +121,9 @@ for (const token of ['motion-field', '@keyframes orbit-turn', '@keyframes node-p
 check('hub declares eight v1.3 current pages', v13Pages.every((slug) => hubJs.includes(`'${slug}':'v1.3'`)));
 check('hub summary declares the 8/9/13 review split', hubJs.includes('8 image-led page revisions') && hubJs.includes('9 page-only mockups') && hubJs.includes('13 reusable-system reviews'));
 check('hub links open in a new window/tab safely', hubJs.includes('target="_blank" rel="noopener noreferrer"'));
+check('v1.3 image URLs resolve from the page URL', v13Js.includes('new URL(`${root}assets/images/'));
+check('v1.2 image URLs resolve from the page URL', v12Js.includes('new URL(`${root}assets/images/'));
+check('v1.1 image URLs resolve from the page URL', read(path.join(assets, 'mockup-system.js')).includes('new URL(`${root}assets/images/'));
 
 const localTargets = new Set();
 for (const source of [v13Js, hubJs]) {

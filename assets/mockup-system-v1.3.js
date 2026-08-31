@@ -18,7 +18,7 @@
   };
   const img = (name) => {
     const isV2 = name.startsWith('v2:');
-    return `${root}assets/images/${isV2 ? 'generated-v2' : 'generated-v1'}/${isV2 ? name.slice(3) : name}`;
+    return new URL(`${root}assets/images/${isV2 ? 'generated-v2' : 'generated-v1'}/${isV2 ? name.slice(3) : name}`, window.location.href).href;
   };
   const joinUrl = 'https://lp.constantcontactpages.com/ev/reg/c9zrcum';
   const notifyUrl = 'https://lp.constantcontactpages.com/sl/As6eGyf';
