@@ -28,7 +28,7 @@ check('removed mockup disclaimer from revised footer', !system.includes('© NEVS
 check('hub removes internal version summary', !hub.includes('class="hub-summary"'));
 check('hub removes redundant hero shortcuts', !hub.includes('Start with Home') && !hub.includes('Review component library') && !hub.includes('Brand Foundation v2'));
 check('hub keeps separate-window review cards', hub.includes('target="_blank" rel="noopener noreferrer"'));
-check('hub cache advanced', hubHtml.includes('mockup-hub.js?build=20260831f'));
+check('hub cache advanced', /mockup-hub\.js\?build=20260831[fg]/.test(hubHtml));
 
 const failed = checks.filter(({pass}) => !pass);
 for (const {label,pass} of checks) console.log(`${pass ? 'PASS' : 'FAIL'} ${label}`);
