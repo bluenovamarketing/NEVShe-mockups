@@ -6,17 +6,39 @@
   const id = body.dataset.artifactId;
   const version = body.dataset.version || '';
   const root = kind === 'hub' ? './' : '../../';
-  const img = (name) => new URL(`${root}assets/images/generated-v1/${name}`, window.location.href).href;
+  const currentVersions = {
+    'home': 'v1.4',
+    'about-nevshe': 'v1.4',
+    'board-of-directors': 'v1.4',
+    'events': 'v1.3',
+    'education': 'v1.3',
+    'membership': 'v1.3',
+    'member-directory': 'v1.4',
+    'sponsorship': 'v1.5',
+    'sponsor-directory': 'v1.5',
+    'resources': 'v1.4',
+    'news': 'v1.5',
+    'contact': 'v1.4'
+  };
+  const img = (name) => {
+    const versioned = name.match(/^v([1-9]):(.+)$/);
+    const folder = versioned ? `generated-v${versioned[1]}` : 'generated-v1';
+    const filename = versioned ? versioned[2] : name;
+    return new URL(`${root}assets/images/${folder}/${filename}`, window.location.href).href;
+  };
   const joinUrl = 'https://lp.constantcontactpages.com/ev/reg/c9zrcum';
   const notifyUrl = 'https://lp.constantcontactpages.com/sl/As6eGyf';
 
   const pageConfigs = {
     'home': {
       n: 1, name: 'Home', type: 'home', image: 'statewide-healthcare-hero-v1.png',
+      supportImage: 'v2:home-connected-campus-v2.png',
+      storyEyebrow: 'A living facilities network', storyTitle: 'Connected systems. Connected people.',
+      storyText: 'The visual system treats the healthcare campus as an active network—energy, water, air, safety, knowledge, and people moving together rather than a collection of static buildings.',
       eyebrow: 'Nevada Society of Healthcare Engineers',
       title: 'Advancing Nevada’s healthcare facilities community.',
       intro: 'Education, collaboration, and professional development for the people who keep healthcare environments safe, efficient, and operational.',
-      cta: ['Join NEVShe', joinUrl], secondary: ['View events', '../events-v1.1/'],
+      cta: ['Join NEVShe', joinUrl], secondary: ['View events', '../events-v1.2/'],
       stats: [['60+','members and growing'],['Statewide','one Nevada chapter'],['ASHE','chapter connection'],['Year-round','education and events']],
       sections: [
         ['Built for the people behind healthcare', 'NEVShe connects facility operators, engineers, technicians, healthcare leaders, and industry partners across Nevada. This agency-draft direction presents the chapter as practical, welcoming, and statewide.'],
@@ -29,10 +51,14 @@
       ]
     },
     'about-nevshe': {
-      n: 2, name: 'About NEVShe', type: 'standard', image: 'statewide-healthcare-hero-v1.png', eyebrow: 'One chapter. One Silver State.',
+      n: 2, name: 'About NEVShe', type: 'standard', image: 'v2:about-statewide-network-v2.png',
+      supportImage: 'v2:about-statewide-campus-v2.png',
+      storyEyebrow: 'Statewide by design', storyTitle: 'One chapter across a wide, complex state.',
+      storyText: 'A statewide healthcare campus scene carries the idea beyond the hero—connecting geography, facilities, disciplines, and professional relationships without inventing chapter-history details.',
+      eyebrow: 'One chapter. One Silver State.',
       title: 'A statewide community for healthcare facilities professionals.',
       intro: 'This page direction explains NEVShe’s role, who it serves, and how its ASHE chapter connection supports education and collaboration across Nevada.',
-      cta: ['Learn about membership', '../membership-v1.1/'], secondary: ['Meet the board', '../board-of-directors-v1.1/'],
+      cta: ['Learn about membership', '../membership-v1.2/'], secondary: ['Meet the board', '../board-of-directors-v1.3/'],
       sections: [
         ['Why NEVShe exists', 'Healthcare environments depend on people and systems working together. NEVShe creates a Nevada-focused place for facilities professionals and partners to share knowledge, build relationships, and strengthen the work behind patient care.'],
         ['Statewide by design', 'The chapter serves northern and southern Nevada, urban and rural facilities, and the wide range of disciplines required to operate complex healthcare environments.'],
@@ -41,10 +67,14 @@
       cards: [['Education','Practical learning that supports safer, stronger facilities.','See education'],['Collaboration','A statewide network for shared experience and problem-solving.','Join the community'],['Professional growth','Connections and resources for operators, leaders, and partners.','Explore resources']]
     },
     'board-of-directors': {
-      n: 3, name: 'Board of Directors', type: 'directory', image: 'rural-hvac-operations-v1.png', eyebrow: 'Chapter leadership',
+      n: 3, name: 'Board of Directors', type: 'directory', image: 'rural-hvac-operations-v1.png',
+      supportImage: 'v2:board-leadership-planning-v2.png',
+      storyEyebrow: 'Leadership in practice', storyTitle: 'Decisions grounded in the work behind care.',
+      storyText: 'The second editorial scene breaks up the directory and gives leadership a more human, working context while names, roles, employers, and biographies remain client-supplied.',
+      eyebrow: 'Chapter leadership',
       title: 'Leadership serving healthcare facilities across Nevada.',
       intro: 'A structured leadership directory will introduce officers and directors without requiring routine editors to redesign cards or layouts.',
-      cta: ['Contact NEVShe', '../contact-v1.1/'],
+      cta: ['Contact NEVShe', '../contact-v1.3/'],
       cards: [['President','Name and employer pending','Board role'],['Vice President','Name and employer pending','Board role'],['Secretary / Treasurer','Name and employer pending','Board role'],['Director','Name and employer pending','Board role'],['Director','Name and employer pending','Board role'],['Director','Name and employer pending','Board role']]
     },
     'events': {
@@ -59,7 +89,7 @@
       n: 5, name: 'Education', type: 'standard', image: 'tahoe-water-systems-v1.png', eyebrow: 'Continuing education',
       title: 'Practical knowledge for complex healthcare environments.',
       intro: 'The education hub brings chapter learning opportunities, trusted external resources, and future on-demand material into a focused experience.',
-      cta: ['View opportunities', '#opportunities'], secondary: ['Explore resources', '../resources-v1.1/'],
+      cta: ['View opportunities', '#opportunities'], secondary: ['Explore resources', '../resources-v1.2/'],
       sections: [['Education with operational relevance','Agency-draft framing centers the real systems, standards, and leadership challenges facilities teams navigate every day.'],['A flexible learning system','The layout can support upcoming sessions, webinars, presentations, certification links, topic submissions, and later on-demand material without redesigning the page.']],
       cards: [['Compliance & life safety','Codes, standards, and safe operations.','View topic'],['Water management','Resilience, quality, and environmental stewardship.','View topic'],['Emergency preparedness','Planning for continuity and response.','View topic'],['Facilities operations','Mechanical, electrical, maintenance, and performance.','View topic'],['Construction','Healthcare construction and infection-prevention coordination.','View topic'],['Leadership & workforce','Professional development and the next generation.','View topic']]
     },
@@ -67,28 +97,36 @@
       n: 6, name: 'Membership', type: 'conversion', image: 'southern-campus-leadership-v1.png', eyebrow: 'Join the statewide network',
       title: 'Grow your knowledge, network, and impact.',
       intro: 'This agency-draft membership page makes the value proposition clear while sending registration into NEVShe’s existing Constant Contact and PayPal workflow.',
-      cta: ['Join NEVShe', joinUrl], secondary: ['Membership questions', '../contact-v1.1/'],
+      cta: ['Join NEVShe', joinUrl], secondary: ['Membership questions', '../contact-v1.2/'],
       cards: [['Learn','Connect with education and resources relevant to healthcare facilities.','Included direction'],['Connect','Build relationships with operators, leaders, and industry partners statewide.','Included direction'],['Contribute','Share experience and help strengthen Nevada’s healthcare facilities community.','Included direction']],
       faq: [['Who should join?','Final eligibility and membership-type language is pending NEVShe confirmation. The page is structured for facilities professionals, healthcare leaders, and approved industry partners.'],['How do I register?','The Join action opens NEVShe’s existing Constant Contact registration flow, which continues to its current payment process.'],['How is membership processed?','The approved Phase One workflow remains manually administered by NEVShe.']]
     },
     'member-directory': {
-      n: 7, name: 'Member Directory', type: 'directory', image: 'rural-hvac-operations-v1.png', eyebrow: 'Statewide organization directory',
+      n: 7, name: 'Member Directory', type: 'directory', image: 'v2:member-directory-networking-v2.png', eyebrow: 'Statewide organization directory',
       title: 'Find organizations supporting Nevada healthcare facilities.',
       intro: 'Phase One displays approved organization-level information only: organization name, industry, logo, and website. Personal contact information is excluded.',
-      cta: ['Membership overview', '../membership-v1.1/'],
+      cta: ['Membership overview', '../membership-v1.2/'],
       filters: ['All organizations','Healthcare provider','Engineering','Construction','Facilities services','Technology'],
       cards: [['Member organization','Industry pending','Organization profile'],['Member organization','Industry pending','Organization profile'],['Member organization','Industry pending','Organization profile'],['Member organization','Industry pending','Organization profile'],['Member organization','Industry pending','Organization profile'],['Member organization','Industry pending','Organization profile']]
     },
     'sponsorship': {
-      n: 8, name: 'Sponsorship', type: 'conversion', image: 'southern-campus-leadership-v1.png', eyebrow: 'Support the chapter',
+      n: 8, name: 'Sponsorship', type: 'conversion', image: 'v2:sponsorship-systems-partnership-v2.png',
+      supportImage: 'v3:sponsorship-community-support-v3.png', heroTone: 'seamless',
+      storyEyebrow: 'Support made visible', storyTitle: 'Partnership becomes useful participation.',
+      storyText: 'The supporting image now centers partnership, professional connection, and visible chapter support, while exact sponsorship levels, benefits, and financial terms remain pending.',
+      eyebrow: 'Support the chapter',
       title: 'Put your support behind Nevada’s healthcare facilities community.',
       intro: 'The sponsorship experience introduces the audience and opportunity clearly while reserving specific levels, benefits, and financial terms for client-confirmed content.',
-      cta: ['Become a Sponsor', joinUrl], secondary: ['Ask a question', '../contact-v1.1/'],
+      cta: ['Become a Sponsor', joinUrl], secondary: ['Ask a question', '../contact-v1.3/'],
       cards: [['Chapter visibility','Proposed placement across approved sponsor surfaces and chapter communications.','Benefits pending'],['Community support','Align with education, collaboration, and professional development in Nevada.','Benefits pending'],['Lasting connection','Build relationships with healthcare facilities professionals and leaders.','Benefits pending']],
       faq: [['What sponsorship levels are available?','Names, pricing, benefits, and availability remain pending NEVShe confirmation. The design supports tiered comparison.'],['Can we sponsor an event?','The layout can distinguish annual chapter support from event-specific opportunities when details are supplied.'],['How do we register?','The primary action opens the existing external Constant Contact registration workflow.']]
     },
     'sponsor-directory': {
-      n: 9, name: 'Sponsor Directory', type: 'directory', image: 'southern-campus-leadership-v1.png', eyebrow: 'Chapter supporters',
+      n: 9, name: 'Sponsor Directory', type: 'directory', image: 'v3:sponsor-directory-supporters-v3.png', heroTone: 'open',
+      supportImage: 'v2:sponsor-directory-specialties-v2.png',
+      storyEyebrow: 'Different specialties, shared outcomes', storyTitle: 'Recognition with real visual variety.',
+      storyText: 'A distinct supporting image introduces the range of technical specialties sponsors may represent without inventing company names, levels, claims, or affiliations.',
+      eyebrow: 'Chapter supporters',
       title: 'Recognizing organizations that help NEVShe grow.',
       intro: 'A tier-aware directory gives sponsors clear recognition while allowing administrators to add or update entries through simple WordPress fields.',
       cta: ['Become a Sponsor', joinUrl],
@@ -96,7 +134,7 @@
       cards: [['Sponsor name pending','Level pending','Sponsor profile'],['Sponsor name pending','Level pending','Sponsor profile'],['Sponsor name pending','Level pending','Sponsor profile'],['Sponsor name pending','Level pending','Sponsor profile'],['Sponsor name pending','Level pending','Sponsor profile'],['Sponsor name pending','Level pending','Sponsor profile']]
     },
     'resources': {
-      n: 10, name: 'Resources', type: 'archive', image: 'infrastructure-safety-v1.png', eyebrow: 'Professional resource library',
+      n: 10, name: 'Resources', type: 'archive', image: 'v3:resources-professional-library-v3.png', heroTone: 'soft', eyebrow: 'Professional resource library',
       title: 'Find useful guidance without digging through the site.',
       intro: 'A searchable, filterable resource library supports approved files and trusted external links with clear source, topic, format, and publication details.',
       cta: ['Browse resources', '#library'],
@@ -104,7 +142,7 @@
       cards: [['Resource title pending','Approved source required','External link or document'],['Resource title pending','Approved source required','External link or document'],['Resource title pending','Approved source required','External link or document'],['Resource title pending','Approved source required','External link or document'],['Resource title pending','Approved source required','External link or document'],['Resource title pending','Approved source required','External link or document']]
     },
     'news': {
-      n: 11, name: 'News', type: 'archive', image: 'education-collaboration-v1.png', eyebrow: 'Chapter and industry updates',
+      n: 11, name: 'News', type: 'archive', image: 'v3:news-chapter-editorial-v3.png', heroTone: 'soft', eyebrow: 'Chapter and industry updates',
       title: 'News from across Nevada’s healthcare facilities community.',
       intro: 'The news system supports chapter updates, member and sponsor spotlights, advocacy, industry context, event recaps, and continuing education.',
       cta: ['Get notifications', notifyUrl],
@@ -112,7 +150,7 @@
       cards: [['Featured story title pending','Chapter News','Agency-draft excerpt will appear here once the source story is supplied.'],['Article title pending','Industry Updates','WordPress posts automatically populate this archive card.'],['Article title pending','Member Spotlight','Authorship, categories, imagery, and SEO fields remain simple to edit.']]
     },
     'contact': {
-      n: 12, name: 'Contact', type: 'contact', image: 'statewide-healthcare-hero-v1.png', eyebrow: 'Connect with NEVShe',
+      n: 12, name: 'Contact', type: 'contact', image: 'v2:contact-professional-connection-v2.png', eyebrow: 'Connect with NEVShe',
       title: 'Start the right conversation.',
       intro: 'This page separates general inquiries, membership and sponsorship interest, and event notifications while final recipient and social details remain pending.',
       cta: ['Join event notifications', notifyUrl]
@@ -172,7 +210,7 @@
     return `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]}</svg>`;
   };
 
-  const local = (slug) => `${root}pages/${slug}-v1.1/`;
+  const local = (slug) => `${root}pages/${slug}-${currentVersions[slug] || 'v1.2'}/`;
   const reviewBar = (label) => `<div class="review-bar"><a href="${root}">← Complete mockup hub</a><div class="review-meta"><span class="review-pill">${label}</span>${version ? `<span class="review-pill">${version}</span>` : ''}<span class="review-pill">Agency draft • 2026-08-31</span></div></div>`;
 
   function header(current = '') {
@@ -214,17 +252,19 @@
   const pageHero = (c, home = false) => {
     const style = c.image ? ` style="--hero-image:url('${img(c.image)}')"` : '';
     const actions = [c.cta,c.secondary].filter(Boolean).map((x,i) => `<a class="btn ${i ? 'btn-ghost' : 'btn-primary'}" href="${x[1]}">${x[0]} ${icon('arrow')}</a>`).join('');
-    if (home) return `<section class="hero"${style}><div class="hero-lines"></div><div class="hero-content"><div class="hero-copy"><span class="draft-chip">Agency draft</span><div class="eyebrow" style="margin-top:22px">${c.eyebrow}</div><h1>${c.title}</h1><p>${c.intro}</p><div class="hero-actions">${actions}</div></div></div></section>`;
-    return `<section class="interior-hero ${c.image ? 'has-image' : ''}"${style}><div class="interior-hero-inner"><div class="breadcrumbs"><a href="${local('home')}">Home</a><span>/</span><span>${c.name}</span></div><div><span class="draft-chip">Agency draft</span><div class="eyebrow" style="margin-top:20px">${c.eyebrow}</div><h1>${c.title}</h1><p>${c.intro}</p>${actions ? `<div class="hero-actions">${actions}</div>` : ''}</div></div></section>`;
+    if (home) return `<section class="hero"${style}><div class="hero-content"><div class="hero-copy"><span class="draft-chip">Agency draft</span><div class="eyebrow" style="margin-top:22px">${c.eyebrow}</div><h1>${c.title}</h1><p>${c.intro}</p><div class="hero-actions">${actions}</div></div></div></section>`;
+    return `<section class="interior-hero ${c.image ? 'has-image' : ''} hero-tone-${c.heroTone || 'seamless'}"${style}><div class="interior-hero-inner"><div class="breadcrumbs"><a href="${local('home')}">Home</a><span>/</span><span>${c.name}</span></div><div><span class="draft-chip">Agency draft</span><div class="eyebrow" style="margin-top:20px">${c.eyebrow}</div><h1>${c.title}</h1><p>${c.intro}</p>${actions ? `<div class="hero-actions">${actions}</div>` : ''}</div></div></section>`;
   };
 
   const sectionHeading = (eyebrow, title, text) => `<div class="section-heading"><div class="eyebrow" style="color:var(--violet)">${eyebrow}</div><h2>${title}</h2><p>${text}</p></div>`;
   const featureCards = (cards, directory = false) => `<div class="grid ${cards.length > 4 ? 'grid-3' : 'grid-3'}">${cards.map((x,i) => directory ? `<article class="card directory-card placeholder"><div class="avatar">${String(i+1).padStart(2,'0')}</div><div><div class="meta">${x[1]}</div><h3>${x[0]}</h3><p>${x[2]}</p></div></article>` : `<article class="card"><div class="card-icon">${['✦','↗','◇','✓','◌','＋'][i%6]}</div><div class="meta">${x[1]}</div><h3>${x[0]}</h3><p>${x[2]}</p><span class="card-link">${x[2].includes('pending') ? 'Content pending' : 'Review direction'} →</span></article>`).join('')}</div>`;
+  const visualStory = (c) => `<section class="section visual-story-section"><div class="container"><div class="visual-story"><div class="visual-story-media" style="--story-image:url('${img(c.supportImage)}')"><span class="visual-story-label">Unique page image</span></div><div class="visual-story-copy"><div class="eyebrow" style="color:var(--violet)">${c.storyEyebrow}</div><h2>${c.storyTitle}</h2><p>${c.storyText}</p><div class="visual-facts" aria-label="Visual direction notes"><span>Agency draft</span><span>Page-specific asset</span><span>Editorial break</span></div></div></div></div></section>`;
 
   function renderHome(c) {
     return `${pageHero(c,true)}
       <section class="section section-alt"><div class="container"><div class="stats">${c.stats.map(([a,b])=>`<div class="stat"><strong data-count>${a}</strong><span>${b}</span></div>`).join('')}</div></div></section>
       <section class="section"><div class="container">${sectionHeading('Who NEVShe serves',c.sections[0][0],c.sections[0][1])}${featureCards(c.cards)}</div></section>
+      ${c.supportImage ? visualStory(c) : ''}
       <section class="section section-dark"><div class="container"><div class="split"><div>${sectionHeading('Featured event','A clear path from interest to registration.','Event details are intentionally representative until NEVShe supplies the next approved event. The reusable event system supports dates, locations, speakers, objectives, CE/CEC details, agenda files, and external registration.') }<div class="hero-actions"><a class="btn btn-primary" href="${local('events')}">Review the event system ${icon('arrow')}</a></div></div><article class="card"><div class="meta">Featured event • Details pending</div><h3>Next NEVShe learning opportunity</h3><p>Representative content slot with date, format, location, registration state, and post-event resources.</p><span class="card-link">Event information pending →</span></article></div></div></section>
       <section class="section"><div class="container"><div class="quote"><blockquote>“One statewide community, connected by the work behind every safe and resilient healthcare environment.”</blockquote><cite>Proposed positioning line • Agency draft</cite></div></div></section>
       <section class="section section-alt"><div class="container">${sectionHeading('Latest knowledge','Education, resources, and chapter updates in one system.',c.sections[1][1])}<div class="grid grid-3"><article class="card"><div class="meta">Education</div><h3>Practical topics for complex facilities</h3><p>Compliance, life safety, water, emergency preparedness, operations, construction, leadership, and workforce development.</p></article><article class="card"><div class="meta">Resources</div><h3>A library built for quick retrieval</h3><p>Search and filter trusted links and approved documents by source, topic, format, and date.</p></article><article class="card"><div class="meta">News</div><h3>Chapter stories and industry context</h3><p>News, spotlights, advocacy, recaps, and continuing-education updates share one editorial system.</p></article></div></div></section>
@@ -234,6 +274,7 @@
 
   function renderStandard(c) {
     return `${pageHero(c)}<section class="section"><div class="container"><div class="grid grid-3">${c.sections.map((s,i)=>`<article class="card"><div class="card-icon">${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></article>`).join('')}</div></div></section>
+      ${c.supportImage ? visualStory(c) : ''}
       <section class="section section-alt"><div class="container">${sectionHeading('Page content system','A clear hierarchy for scanning, learning, and taking action.','Every repeated content type is designed for simple WordPress fields and automatic Elementor rendering.')}${featureCards(c.cards)}</div></section>
       <section class="section"><div class="container"><div class="cta-band"><div class="eyebrow">Next step</div><h2>${c.cta ? c.cta[0] : 'Continue exploring'}</h2><p>Final facts and language remain subject to NEVShe review. The layout, hierarchy, and reusable component direction are ready for design feedback.</p><div class="hero-actions"><a class="btn btn-secondary" href="${c.cta ? c.cta[1] : local('contact')}">${c.cta ? c.cta[0] : 'Contact NEVShe'} ${icon('arrow')}</a></div></div></div></section>`;
   }
@@ -241,6 +282,7 @@
   function renderDirectory(c) {
     return `${pageHero(c)}<section class="section"><div class="container"><div class="search-panel"><input type="search" aria-label="Search directory" placeholder="Search this directory"><button class="btn btn-primary" type="button">Search</button></div>${c.filters ? `<div class="filter-bar" style="margin-top:18px">${c.filters.map((f,i)=>`<button class="filter" type="button" aria-pressed="${i===0}">${f}</button>`).join('')}</div>` : ''}</div></section>
       <section class="section section-alt"><div class="container">${sectionHeading('Directory preview','Structured, consistent, and simple to maintain.','These intentionally unpopulated cards demonstrate hierarchy and empty-content handling without inventing names, employers, companies, or affiliations.')}${featureCards(c.cards,true)}</div></section>
+      ${c.supportImage ? visualStory(c) : ''}
       <section class="section"><div class="container"><div class="notice"><strong>Privacy and content rule:</strong> only approved public fields will appear. For the Member Directory, Phase One excludes personal email addresses, direct phone numbers, accounts, and private profiles.</div></div></section>`;
   }
 
@@ -252,6 +294,7 @@
 
   function renderConversion(c) {
     return `${pageHero(c)}<section class="section"><div class="container">${sectionHeading('Proposed value framing','A concise route from interest to action.','Specific eligibility, levels, pricing, benefits, and financial terms will appear only after NEVShe supplies or confirms them.')}${featureCards(c.cards)}</div></section>
+      ${c.supportImage ? visualStory(c) : ''}
       <section class="section section-alt"><div class="container"><div class="split"><div><div class="eyebrow" style="color:var(--violet)">How it works</div><h2 style="color:var(--chapter);font-family:var(--serif);font-size:clamp(2.4rem,5vw,4.5rem);font-weight:500;margin:.3em 0">Simple outside. Simple inside.</h2><ul class="check-list"><li>Visitor reviews the approved membership or sponsorship information.</li><li>The primary action opens NEVShe’s existing Constant Contact registration flow.</li><li>The current downstream PayPal and manual administration workflow stays intact for Phase One.</li></ul></div><div class="card"><div class="meta">Existing external workflow</div><h3>Registration remains off-site</h3><p>This mockup does not imitate checkout or collect payment information. It clearly signals the handoff to the approved external destination.</p><div class="hero-actions"><a class="btn btn-primary" href="${joinUrl}">${c.cta[0]} ${icon('arrow')}</a></div></div></div></div></section>
       <section class="section"><div class="container">${sectionHeading('Questions','Frequently asked questions reduce uncertainty before registration.','Answers below distinguish verified workflow facts from details still awaiting client confirmation.')}<div class="faq">${c.faq.map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join('')}</div></div></section>`;
   }
@@ -286,7 +329,7 @@
     else if (c.type === 'legal') main = renderLegal(c);
     else if (c.type === 'search') main = renderSearch(c);
     else if (c.type === '404') main = render404(c);
-    document.getElementById('app').innerHTML = `${reviewBar(`${c.name} page`)}${header(id)}<main id="main">${main}</main>${footer()}`;
+    document.getElementById('app').innerHTML = `${reviewBar(`${c.name} page`)}<main id="main">${main}</main>`;
   }
 
   const miniCards = (labels, directory=false) => `<div class="grid grid-3">${labels.map((x,i)=>directory?`<div class="card directory-card placeholder"><div class="avatar">${i+1}</div><div><div class="meta">${x[1]||'Field pending'}</div><h3>${x[0]}</h3><p>${x[2]||'Structured content preview.'}</p></div></div>`:`<div class="card"><div class="card-icon">${i+1}</div><div class="meta">${x[1]||'Reusable pattern'}</div><h3>${x[0]}</h3><p>${x[2]||'Template-controlled content and interaction.'}</p></div>`).join('')}</div>`;
@@ -333,12 +376,9 @@
   function renderHub() {
     const pages = Object.entries(pageConfigs).sort((a,b)=>a[1].n-b[1].n);
     const templates = Object.entries(templateConfigs);
-    const openNew = 'target="_blank" rel="noopener noreferrer"';
-    const currentPageVersions = {'home':'v1.4','about-nevshe':'v1.4','board-of-directors':'v1.4','events':'v1.3','education':'v1.3','membership':'v1.3','member-directory':'v1.4','sponsorship':'v1.5','sponsor-directory':'v1.5','resources':'v1.4','news':'v1.5','contact':'v1.4'};
-    const contentFitPages = new Set(['sponsorship','sponsor-directory','resources','news']);
-    const pageCards = pages.map(([slug,c])=>{ const v=currentPageVersions[slug] || 'v1.2'; return `<a class="review-card" href="pages/${slug}-${v}/" ${openNew}><span class="number">${String(c.n).padStart(2,'0')}</span><h3>${c.name}</h3><p>${c.intro}</p><footer><span>${contentFitPages.has(slug) ? 'Content-fit hero revision' : 'Current page mockup'}</span><span>${v} ↗</span></footer></a>`; }).join('');
-    const templateCards = templates.map(([slug,c],i)=>`<a class="review-card template" href="templates/${slug}-v1.1/" ${openNew}><span class="number">T${String(i+1).padStart(2,'0')}</span><h3>${c[0]}</h3><p>${c[2]}</p><footer><span>${c[1]}</span><span>v1.1 ↗</span></footer></a>`).join('');
-    document.getElementById('app').innerHTML = `<div class="hub-shell">${reviewBar('Complete website draft')}<main id="main"><section class="hub-hero"><div class="container"><span class="draft-chip">Full review set • 2026-08-31</span><div class="eyebrow" style="color:var(--violet);margin-top:24px">Statewide Nevada • Website design review</div><h1>A draft of every launch page, template, and global component.</h1><p>Review the overall system first, then open individual artifacts for page-specific hierarchy, agency-draft copy, structured-content states, mobile behavior, and calls to action. Each review link opens in a separate tab or window so this hub stays available. All missing names, dates, benefits, prices, legal language, and other authoritative facts remain visibly pending.</p><div class="hub-summary"><span>3 pages • current v1.5</span><span>6 pages • current v1.4</span><span>3 pages • current v1.3</span><span>5 page-only mockups • current v1.2</span><span>13 reusable-system reviews • current v1.1</span><span>Four content-fit hero revisions ready</span></div><div class="hero-actions"><a class="btn btn-primary" href="pages/home-v1.4/" ${openNew}>Start with Home ${icon('arrow')}</a><a class="btn btn-secondary" href="templates/global-component-library-v1.1/" ${openNew}>Review component library</a><a class="btn btn-secondary" href="brand-kit/v2/" ${openNew}>Brand Foundation v2</a></div></div></section><section class="section"><div class="container">${sectionHeading('Launch pages','Every page in the approved Phase One inventory.','Sponsorship now uses a seamless hero blend and partnership-focused support image; Sponsor Directory reveals more of its hero; Resources and News now use page-specific imagery that matches their content. The site header and footer remain separate global mockups.')}<div class="review-grid">${pageCards}</div></div></section><section class="section section-alt"><div class="container">${sectionHeading('Templates & global systems','Reusable patterns that keep WordPress simple and consistent.','These artifacts show the systems behind recurring content, navigation, footer, forms, search, empty states, and global components.')}<div class="review-grid">${templateCards}</div></div></section><section class="section"><div class="container"><div class="cta-band"><div class="eyebrow">Review guidance</div><h2>Focus first on structure, tone, visual rhythm, and reusable behavior.</h2><p>Factual fields marked pending are intentionally not invented. Layout feedback, copy feedback, imagery feedback, and functional notes can be consolidated into the next independent page/template revisions.</p></div></div></section></main></div>`;
+    const pageCards = pages.map(([slug,c])=>`<a class="review-card" href="pages/${slug}-v1.1/"><span class="number">${String(c.n).padStart(2,'0')}</span><h3>${c.name}</h3><p>${c.intro}</p><footer><span>Page mockup</span><span>v1.1 →</span></footer></a>`).join('');
+    const templateCards = templates.map(([slug,c],i)=>`<a class="review-card template" href="templates/${slug}-v1.1/"><span class="number">T${String(i+1).padStart(2,'0')}</span><h3>${c[0]}</h3><p>${c[2]}</p><footer><span>${c[1]}</span><span>v1.1 →</span></footer></a>`).join('');
+    document.getElementById('app').innerHTML = `<div class="hub-shell">${reviewBar('Complete website draft')}<main id="main"><section class="hub-hero"><div class="container"><span class="draft-chip">Full review set • 2026-08-30</span><div class="eyebrow" style="color:var(--violet);margin-top:24px">Statewide Nevada • Website design review</div><h1>A draft of every launch page, template, and global component.</h1><p>Review the overall system first, then open individual artifacts for page-specific hierarchy, agency-draft copy, structured-content states, mobile behavior, and calls to action. All missing names, dates, benefits, prices, legal language, and other authoritative facts remain visibly pending.</p><div class="hub-summary"><span>17 page mockups</span><span>13 reusable-system reviews</span><span>All current artifacts v1.1</span><span>Responsive + reduced motion</span></div><div class="hero-actions"><a class="btn btn-primary" href="pages/home-v1.1/">Start with Home ${icon('arrow')}</a><a class="btn btn-secondary" href="templates/global-component-library-v1.1/">Review component library</a><a class="btn btn-secondary" href="brand-kit/v2/">Brand Foundation v2</a></div></div></section><section class="section"><div class="container">${sectionHeading('Launch pages','Every page in the approved Phase One inventory.','Each page owns its independent v1.1 sequence and current review path.')}<div class="review-grid">${pageCards}</div></div></section><section class="section section-alt"><div class="container">${sectionHeading('Templates & global systems','Reusable patterns that keep WordPress simple and consistent.','These artifacts show the systems behind recurring content, navigation, footer, forms, search, empty states, and global components.')}<div class="review-grid">${templateCards}</div></div></section><section class="section"><div class="container"><div class="cta-band"><div class="eyebrow">Review guidance</div><h2>Focus first on structure, tone, visual rhythm, and reusable behavior.</h2><p>Factual fields marked pending are intentionally not invented. Layout feedback, copy feedback, imagery feedback, and functional notes can be consolidated into the next independent page/template revisions.</p></div></div></section></main></div>`;
   }
 
   function initInteractions() {
