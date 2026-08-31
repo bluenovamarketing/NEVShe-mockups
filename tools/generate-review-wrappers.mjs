@@ -24,7 +24,7 @@ const shell = (kind, id) => `<!doctype html>
 </head>
 <body data-artifact-kind="${kind}" data-artifact-id="${id}" data-version="v1.1">
   <div id="app"></div>
-  <script src="../../assets/mockup-system.js"></script>
+  <script src="../../assets/mockup-system.js?build=20260831b"></script>
 </body>
 </html>
 `;
@@ -53,7 +53,7 @@ await writeFile(join(root, 'index.html'), `<!doctype html>
 </head>
 <body data-artifact-kind="hub" data-artifact-id="review-hub">
   <div id="app"></div>
-  <script src="assets/mockup-system.js"></script>
+  <script src="assets/mockup-hub.js?build=20260831b"></script>
 </body>
 </html>
 `, 'utf8');

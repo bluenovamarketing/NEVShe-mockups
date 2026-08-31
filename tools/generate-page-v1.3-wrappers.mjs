@@ -27,7 +27,7 @@ const shell = (id) => `<!doctype html>
 </head>
 <body data-artifact-kind="page" data-artifact-id="${id}" data-version="v1.3">
   <div id="app"></div>
-  <script src="../../assets/mockup-system-v1.3.js"></script>
+  <script src="../../assets/mockup-system-v1.3.js?build=20260831b"></script>
 </body>
 </html>
 `;
