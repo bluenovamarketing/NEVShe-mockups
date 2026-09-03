@@ -1,0 +1,19 @@
+/* Shared pacing, quieter content: never crop or continually move portraits/group photos. */
+.template-motion-page .hero::before { animation:none !important; }
+.template-motion-page .mobile-menu { overflow-y:auto; transition:opacity 280ms ease,transform 280ms ease,visibility 280ms; }
+.template-motion-page .mobile-menu-inner { min-height:min-content; }
+.template-motion-page .template-menu-demo { display:block; margin:0 auto 20px; }
+.template-motion-page .desktop-nav a::after { transition:transform 220ms ease; }
+.template-motion-page .detail-card { transition:translate 280ms ease,box-shadow 280ms ease; }
+.template-motion-page .marquee:hover .marquee-track,
+.template-motion-page .marquee:focus-within .marquee-track { animation-play-state:paused; }
+.template-motion-page .marquee { mask-image:none; }
+.template-motion-page .detail-dialog::backdrop { background:rgba(15,18,50,.65); }
+.template-motion-page.motion-still *,
+.template-motion-page.motion-still *::before,
+.template-motion-page.motion-still *::after { transition:none !important; }
+@media (prefers-reduced-motion:reduce) {
+  .template-motion-page:not(.motion-opt-in) *,
+  .template-motion-page:not(.motion-opt-in) *::before,
+  .template-motion-page:not(.motion-opt-in) *::after { animation:none !important; transition:none !important; }
+}
