@@ -1,0 +1,47 @@
+/* Brand palette: silver #939598, chapter #293492, royal #0109be, violet #2c0caa. */
+body.hover-refinement .hover-surface {
+  --hover-bg:#e5e6e8; --hover-ink:#293492; --hover-border:#939598;
+  position:relative; transform-origin:center;
+  transition:scale 280ms ease,translate 280ms ease,background-color 280ms ease,border-color 280ms ease,box-shadow 280ms ease !important;
+}
+body.hover-refinement .hover-surface[data-hover-tone="blue"] { --hover-bg:#293492; --hover-ink:#fff; --hover-border:#939598; }
+body.hover-refinement .hover-surface[data-hover-tone="violet"] { --hover-bg:#2c0caa; --hover-ink:#fff; --hover-border:#939598; }
+body.hover-refinement .hover-surface :is(h2,h3,h4,p,span,strong,b,small,a,li,dt,dd,.meta,.eyebrow,.detail-tag,.organization-summary-copy) { transition:color 280ms ease !important; }
+body.hover-refinement .hover-surface:focus-within {
+  background:var(--hover-bg) !important; border-color:var(--hover-border) !important;
+  box-shadow:0 20px 42px #29349230,0 0 0 2px #93959880; z-index:2;
+}
+body.hover-refinement .hover-surface:focus-within :is(h2,h3,h4,p,span,strong,b,small,a:not(.btn),li,dt,dd,.meta,.eyebrow,.detail-tag,.organization-summary-copy) {color:var(--hover-ink) !important;}
+body.hover-refinement .hover-surface:is(:hover,:focus-within) .btn { background:#fff !important; color:#293492 !important; border-color:#939598 !important; }
+body.hover-refinement .hover-surface:is(:hover,:focus-within) .btn span { color:inherit !important; }
+body.hover-refinement .hover-surface:is(:hover,:focus-within) .organization-profile-body {background:transparent;}
+body.hover-refinement .hover-surface:is(:hover,:focus-within) .organization-logo-placeholder,
+body.hover-refinement .hover-surface:is(:hover,:focus-within) .organization-logo-placeholder * {color:#293492 !important;}
+body.hover-refinement .hover-surface:focus-within :is(a,button,summary):focus-visible {outline:3px solid var(--hover-ink);outline-offset:4px;}
+body.hover-refinement .hover-sponsor { transition:scale 280ms ease,background-color 280ms ease,border-color 280ms ease,box-shadow 280ms ease !important; }
+body.hover-refinement .marquee { padding-block:28px; mask-image:none; }
+body.hover-refinement .marquee:is(:hover,:focus-within) .marquee-track { animation-play-state:paused !important; }
+body.hover-refinement :is(.hover-filter,.btn) {transition:scale 220ms ease,background-color 220ms ease,color 220ms ease,border-color 220ms ease,box-shadow 220ms ease !important;}
+body.hover-refinement .hover-filter:focus-visible {background:#e5e6e8;color:#293492;outline:3px solid #0109be;outline-offset:3px;}
+body.hover-refinement .hover-filter[aria-pressed="true"],body.hover-refinement .hover-filter[aria-current="page"] {border-color:#293492;box-shadow:inset 0 -3px 0 #939598;}
+/* Preserve legibility for the light card inside the dark homepage event section. */
+body.hover-refinement .section-dark .card:not(:hover):not(:focus-within) p {color:#59595b;}
+@media(hover:hover) and (pointer:fine){
+ body.hover-refinement .hover-surface:hover {background:var(--hover-bg) !important;border-color:var(--hover-border) !important;box-shadow:0 20px 42px #29349230,0 0 0 2px #93959880;z-index:2;}
+ body.hover-refinement .hover-surface:hover :is(h2,h3,h4,p,span,strong,b,small,a:not(.btn),li,dt,dd,.meta,.eyebrow,.detail-tag,.organization-summary-copy) {color:var(--hover-ink) !important;}
+ body.hover-refinement:not(.motion-still) .hover-surface:hover {scale:1.025;translate:0 -5px;}
+ body.hover-refinement:not(.motion-still) .hover-portrait:hover {scale:1.018;}
+ body.hover-refinement .hover-sponsor:hover {background:#e5e6e8;border-color:#939598;color:#293492;box-shadow:0 8px 20px #29349226;}
+ body.hover-refinement:not(.motion-still) .hover-sponsor:hover {scale:1.05;}
+ body.hover-refinement .hover-filter:hover {background:#e5e6e8;color:#293492;border-color:#939598;}
+ body.hover-refinement .hover-filter:is([aria-pressed="true"],[aria-current="page"]):hover {background:#2c0caa;color:#fff;}
+ body.hover-refinement:not(.motion-still) .hover-filter:hover {scale:1.055;}
+ body.hover-refinement:not(.motion-still) .btn:not(:disabled):not([aria-disabled="true"]):hover {scale:1.025;}
+ body.hover-refinement .btn:not(:disabled):not([aria-disabled="true"]):hover {background:#e5e6e8;color:#293492;border-color:#939598;}
+}
+body.hover-refinement.motion-still :is(.hover-surface,.hover-sponsor,.hover-filter,.btn) {scale:none !important;translate:none !important;transition:none !important;}
+body.hover-refinement.motion-still .hover-surface * {transition:none !important;}
+@media(prefers-reduced-motion:reduce){
+ body.hover-refinement:not(.motion-opt-in) :is(.hover-surface,.hover-sponsor,.hover-filter,.btn) {scale:none !important;translate:none !important;transition:none !important;}
+ body.hover-refinement:not(.motion-opt-in) .hover-surface * {transition:none !important;}
+}
