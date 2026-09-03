@@ -1,0 +1,27 @@
+/* Only new News/Event template revisions and their hub review links. */
+.revision-story .detail-hero { max-width:970px; padding-bottom:28px; }
+.revision-prose { max-width:760px; margin:0 auto; padding:48px 0 66px; font-size:18px; }
+.revision-prose h2 { margin-top:34px; font-size:34px; }
+.revision-prose .revision-lead { font-size:21px; color:#343d51; }
+.revision-prose .revision-source { font-size:13px; color:#62697a; margin:28px 0 0; padding-top:20px; border-top:1px solid #dadde8; }
+.revision-event .detail-hero { padding-bottom:0; }
+.revision-event .detail-event-hero { grid-template-columns:1fr 1fr; gap:46px; }
+.revision-event h1 { font-size:clamp(38px,4.3vw,58px); }
+.revision-event .detail-event-hero img { height:auto; width:100%; }
+.revision-event-meta { display:flex; gap:44px; border-block:1px solid #dadde8; padding:22px 0; margin-top:32px; }
+.revision-event-meta span { display:flex; flex-direction:column; gap:5px; }
+.revision-event-meta b { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--chapter); }
+.revision-event-body { max-width:820px; padding:34px 0 64px; font-size:18px; }
+.revision-review-note { font-size:13px; color:#61687a; }
+.revision-review-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; margin-top:22px; font-size:14px; }
+.revision-review-links a { padding:10px 0; color:var(--chapter); font-weight:700; }
+.revision-card-demo { padding-bottom:70px; }
+.revision-demo-grid { max-width:390px; margin-top:28px; }
+.revision-demo-grid .detail-card h2 { font-size:28px; }
+@media(max-width:700px) {
+ .revision-event .detail-event-hero { grid-template-columns:1fr; gap:18px; }
+ .revision-event-meta { gap:22px; flex-wrap:wrap; }
+ .revision-prose { padding-top:32px; font-size:17px; }
+ .revision-prose .revision-lead { font-size:19px; }
+ .revision-prose h2 { font-size:29px; }
+}
