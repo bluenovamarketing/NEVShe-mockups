@@ -1,0 +1,31 @@
+/* Motion pass 1: layered on approved static layouts; no content depends on animation. */
+.motion-review-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-left:auto; }
+.motion-review-label { font-size:11px; letter-spacing:.04em; }
+.motion-review-controls button { font:inherit; color:#fff; border:1px solid #ffffff80; background:#171746; border-radius:5px; padding:8px 12px; min-height:36px; cursor:pointer; }
+.motion-review-controls button:hover { background:#35316b; }
+.motion-review-controls button:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+body.motion-page .review-bar { flex-wrap:wrap; }
+body.motion-page #main { overflow:clip; }
+body.motion-page .hero::before { animation:motion-photo-breathe 20s ease-in-out infinite alternate; }
+body.motion-page[data-motion-family="story"] .interior-hero.has-image::before,
+body.motion-page[data-motion-family="conversion"] .interior-hero.has-image::before { animation:motion-photo-breathe 24s ease-in-out infinite alternate; }
+/* Keep the existing overlays and text stationary; move only the background photograph. */
+@keyframes motion-photo-breathe { from { transform:scale(1.01); } to { transform:scale(1.045); } }
+body.motion-page .motion-hover { transition:translate 280ms ease, box-shadow 280ms ease; }
+body.motion-page .btn { transition:background-color 220ms ease, color 220ms ease, border-color 220ms ease; }
+body.motion-page .btn svg, body.motion-page .board-profile-link svg { transition:translate 220ms ease; }
+body.motion-page :is(input,textarea,select) { transition:border-color 180ms ease, box-shadow 180ms ease; }
+@media (hover:hover) and (pointer:fine) {
+  body.motion-page:not(.motion-still) .motion-hover:hover { translate:0 -4px; }
+  body.motion-page:not(.motion-still) :is(.btn,.board-profile-link):hover svg { translate:3px 0; }
+}
+body.motion-still *, body.motion-still *::before, body.motion-still *::after { animation-play-state:paused !important; }
+body.motion-still :is(.motion-hover,.btn,.btn svg,.board-profile-link svg,input,textarea,select) { transition:none !important; }
+@media (max-width:600px) {
+  .motion-review-controls { width:100%; margin-left:0; justify-content:space-between; }
+  .motion-review-controls button { min-height:44px; }
+  body.motion-page .hero::before, body.motion-page .interior-hero::before { animation:none !important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  body.motion-page:not(.motion-opt-in) *, body.motion-page:not(.motion-opt-in) *::before, body.motion-page:not(.motion-opt-in) *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
