@@ -1,0 +1,19 @@
+/* Review-hub guidance only. */
+body[data-client-review-guide] .client-review-guide {
+  max-width: 860px; margin-top: 30px; padding: clamp(20px,3vw,32px);
+  background: #fff; border: 1px solid #d8dcea; border-radius: 20px; color: #293492;
+}
+body[data-client-review-guide] .client-review-guide h2 { font-size: 1.45rem; margin: 0 0 16px; }
+body[data-client-review-guide] .client-review-guide ol { padding-left: 24px; margin: 0; }
+body[data-client-review-guide] .client-review-guide li { margin: 0 0 12px; line-height: 1.6; }
+body[data-client-review-guide] .client-review-guide p { font-size: 1rem; margin: 16px 0 0; }
+body[data-client-review-guide] .client-preview-disclosure { margin-top: 22px; padding: 22px; border: 1px solid #c9cede; border-radius: 18px; background: #fff; }
+body[data-client-review-guide] .client-preview-disclosure > summary { cursor: pointer; font-weight: 700; color: #293492; font-size: 1.15rem; line-height: 1.5; }
+body[data-client-review-guide] .client-preview-disclosure > summary:hover { text-decoration: underline; }
+body[data-client-review-guide] .client-preview-disclosure > summary:focus-visible { outline: 3px solid #293492; outline-offset: 5px; border-radius: 3px; }
+body[data-client-review-guide] .client-preview-disclosure > p { max-width: 780px; line-height: 1.7; margin: 20px 0; }
+body[data-client-review-guide] .client-preview-disclosure .review-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+body[data-client-review-guide] #shared-features .review-status { background:#e5e6e8; color:#293492; }
+@media(max-width:900px){body[data-client-review-guide] .client-preview-disclosure .review-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){body[data-client-review-guide] .client-preview-disclosure { padding:16px; }body[data-client-review-guide] .client-preview-disclosure .review-grid{grid-template-columns:1fr;}}
+

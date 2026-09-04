@@ -1,0 +1,25 @@
+/* Todd's confirmed sponsor B / mobile-menu / footer alignment.
+   Loaded only by this round's scoped wrappers. No desktop navigation changes. */
+body[data-style-alignment="v1.1"] :is(.mobile-menu,.mobile-preview) nav a:is(:hover,:focus-visible) {
+ color:#939598 !important;text-decoration:underline !important;text-underline-offset:.15em;
+}
+body[data-style-alignment="v1.1"] :is(.site-footer,.mini-footer) a:is(:hover,:focus-visible) {
+ color:#fff !important;text-decoration:underline !important;text-underline-offset:.25em;text-decoration-thickness:2px;
+}
+body[data-style-alignment="v1.1"] :is(.mobile-menu,.mobile-preview,.site-footer,.mini-footer) a:focus-visible {outline:2px solid currentColor;outline-offset:4px;}
+body[data-style-alignment="v1.1"][data-artifact-id] .logo-tile,
+body[data-style-alignment="v1.1"][data-artifact-id] .sponsor-directory-grid .organization-tile,
+body[data-style-alignment="v1.1"][data-artifact-id="sponsor-directory-card-marquee"] main .card {
+ background:#e5e6e8 !important;border-color:#e5e6e8 !important;color:#293492 !important;
+}
+body[data-style-alignment="v1.1"][data-artifact-id] .sponsor-directory-grid .organization-tile :is(.meta,h3,p),
+body[data-style-alignment="v1.1"][data-artifact-id="sponsor-directory-card-marquee"] main .card :is(.meta,h3,p) {color:#293492 !important;}
+body[data-style-alignment="v1.1"][data-artifact-id="sponsor-directory-card-marquee"] main .card .card-icon {color:#fff !important;}
+body[data-style-alignment="v1.1"][data-artifact-id] .logo-tile:is(:hover,:focus-visible),
+body[data-style-alignment="v1.1"][data-artifact-id] .sponsor-directory-grid .organization-tile:is(:hover,:focus-within),
+body[data-style-alignment="v1.1"][data-artifact-id="sponsor-directory-card-marquee"] main .card:is(:hover,:focus-within),
+body[data-style-alignment="v1.1"].silver-corrections.motion-two.hover-refinement[data-artifact-id="home"] .marquee .hover-sponsor:hover {
+ background:#293492 !important;border-color:#293492 !important;color:#fff !important;
+}
+body[data-style-alignment="v1.1"][data-artifact-id] .sponsor-directory-grid .organization-tile:is(:hover,:focus-within) :is(.meta,h3,p),
+body[data-style-alignment="v1.1"][data-artifact-id="sponsor-directory-card-marquee"] main .card:is(:hover,:focus-within) :is(.meta,h3,p) {color:#fff !important;}

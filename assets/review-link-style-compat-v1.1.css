@@ -1,0 +1,21 @@
+/* Preserve baseline-specific selectors in link-only wrappers; declarations unchanged. */
+/* Only About v1.22 loads this explicit mission-button correction. */
+body[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-button-correction .hero-actions .btn {background:#fff !important;color:#293492 !important;border-color:#fff !important;}
+body[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-button-correction .hero-actions .btn:is(:hover,:focus-visible) {background:#939598 !important;color:#fff !important;border-color:#939598 !important;}
+body[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-button-correction .hero-actions .btn :is(span,svg) {color:inherit !important;}
+body[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-button-correction .hero-actions .btn:focus-visible {outline:2px solid #fff;outline-offset:4px;}
+
+
+/* Mission Foundation is informational: no hover treatment. */
+body.silver-corrections[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-static-card,
+body.silver-corrections[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-static-card:is(:hover,:focus-within) {
+  background:#fff !important;
+  color:#293492 !important;
+}
+body.silver-corrections[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-static-card :is(.meta,h3,p,strong),
+body.silver-corrections[data-artifact-id="about-nevshe"][data-link-source-version="v1.22"] .mission-static-card:is(:hover,:focus-within) :is(.meta,h3,p,strong) {
+  color:#293492 !important;
+}
+
+
+body[data-artifact-id="board-of-directors"][data-link-source-version="v1.17"] .brian-supplied-biography {line-height:1.7;margin-block:24px;}

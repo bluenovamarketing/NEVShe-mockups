@@ -1,0 +1,13 @@
+/* Explicit corrections only. Never loaded by approved/frozen revisions. */
+body[data-artifact-id="board-of-directors"][data-version="v1.17"] .brian-supplied-biography {line-height:1.7;margin-block:24px;}
+body[data-artifact-id="about-nevshe"][data-version="v1.19"] .start-here-gray {
+  background:var(--mid, #6d6e71); border-color:var(--silver, #939598); color:#fff;
+}
+body[data-artifact-id="about-nevshe"][data-version="v1.19"] .start-here-gray :is(.meta,h3,p) {color:#fff;}
+body[data-artifact-id="about-nevshe"][data-version="v1.19"] .start-here-gray .btn-secondary {background:transparent;color:#fff;border-color:#fff;}
+body[data-artifact-id="about-nevshe"][data-version="v1.19"] .start-here-gray .btn:focus-visible {outline:3px solid #fff;outline-offset:4px;}
+@media(hover:hover) and (pointer:fine) {
+  body.motion-two.hover-refinement[data-artifact-id="home"][data-version="v1.16"] .marquee .hover-sponsor:hover {
+    background:#e5e6e8 !important;color:#293492 !important;border-color:#939598 !important;
+  }
+}

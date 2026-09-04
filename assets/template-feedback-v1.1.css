@@ -1,0 +1,15 @@
+/* Todd's reusable-template corrections; only new wrappers load this asset. */
+body.template-feedback-nav :is(.mobile-menu,.mobile-preview) nav a:is(:hover,:focus-visible) {color:#939598 !important;text-decoration:underline;text-underline-offset:.15em;}
+body.template-feedback-nav .mobile-preview nav a {font-family:var(--serif);font-size:2rem;text-decoration:none;}
+body.template-feedback-nav .mini-header nav a {text-decoration:none;}
+body.template-feedback-nav .mini-header nav a:is(:hover,:focus-visible) {text-decoration:underline;text-underline-offset:.25em;}
+body.template-feedback-nav :is(.site-footer,.mini-footer) a:is(:hover,:focus-visible) {color:#fff !important;text-decoration:underline !important;text-underline-offset:.25em;text-decoration-thickness:2px;}
+body.template-feedback-nav .mini-footer p a {display:block;}
+body.template-feedback-nav :is(.mobile-menu,.mobile-preview,.mini-footer,.site-footer) a:focus-visible {outline:2px solid currentColor;outline-offset:4px;}
+body.template-feedback-sponsors .logo-tile,
+body.template-feedback-sponsor-cards main .card {background:#939598;border-color:#939598;color:#202124;}
+body.template-feedback-sponsor-cards main .card :is(h3,p,.meta) {color:#202124;}
+body.template-feedback-sponsor-cards main .card .card-icon {color:#fff;}
+body.template-feedback-sponsors.motion-two .logo-tile:is(:hover,:focus-visible),
+body.template-feedback-sponsor-cards.motion-two main .card:is(:hover,:focus-within) {background:#293492 !important;border-color:#293492 !important;color:#fff !important;}
+body.template-feedback-sponsor-cards.motion-two main .card:is(:hover,:focus-within) :is(h3,p,.meta,.card-icon) {color:#fff !important;}

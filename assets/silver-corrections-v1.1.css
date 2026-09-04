@@ -1,0 +1,18 @@
+/* Exact brand silver, not the medium-gray text token. Scoped to new wrappers. */
+body.silver-corrections .start-here-silver {background:#939598;border-color:#939598;color:#fff;}
+body.silver-corrections .start-here-silver :is(.meta,h3,p) {color:#fff !important;}
+body.silver-corrections .start-here-silver .btn {background:#293492 !important;color:#fff !important;border-color:#293492 !important;}
+body.silver-corrections .start-here-silver .btn :is(span,svg) {color:inherit !important;}
+body.silver-corrections.motion-two.hover-refinement .start-here-silver .btn:is(:hover,:focus-visible) {background:#fff !important;color:#293492 !important;border-color:#fff !important;}
+body.silver-corrections .start-here-silver .btn:focus-visible {outline:3px solid #293492;outline-offset:4px;}
+/* Give the passive mission card an explicit readable base state. Previously its
+   paragraph inherited white from the dark section as soon as it was hovered. */
+body.silver-corrections .silver-hover-card {--hover-bg:#939598;--hover-ink:#fff;--hover-border:#939598;color:#293492;}
+body.silver-corrections .silver-hover-card :is(.meta,h3,a,strong) {color:#293492 !important;}
+body.silver-corrections .silver-hover-card p {color:#59595b !important;}
+body.silver-corrections.motion-two .silver-hover-card:is(:hover,:focus-within) {background:#939598 !important;border-color:#939598 !important;color:#fff !important;}
+body.silver-corrections.motion-two .silver-hover-card:is(:hover,:focus-within) :is(.meta,h3,p,a,strong,span) {color:#fff !important;opacity:1;visibility:visible;}
+/* Retain the separately approved/requested Home sponsor-tile gray restoration. */
+@media(hover:hover) and (pointer:fine){
+  body.silver-corrections.motion-two.hover-refinement[data-artifact-id="home"] .marquee .hover-sponsor:hover {background:#e5e6e8 !important;color:#293492 !important;border-color:#939598 !important;}
+}

@@ -1,0 +1,4 @@
+.board-missing-portrait { display:grid;place-items:center;width:100%;aspect-ratio:4/5;background:#e5e6e8;color:#293492; }
+.board-missing-portrait svg { width:55%;height:55%;fill:rgba(41,52,146,.18);stroke:currentColor;stroke-width:2; }
+.board-profile-portrait .board-missing-portrait { height:100%;min-height:350px; }
+
