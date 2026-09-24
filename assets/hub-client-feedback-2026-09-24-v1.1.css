@@ -1,0 +1,7 @@
+/* Stable visual labels above the earlier internal-review badge text. */
+body[data-client-review-guide] #shared-features .review-status[data-client-label] { font-size:0; }
+body[data-client-review-guide] #shared-features .review-status[data-client-label]::after { content:attr(data-client-label); font-size:.72rem; }
+body[data-client-review-guide] #shared-features footer span:last-child[data-current-version] { font-size:0; }
+body[data-client-review-guide] #shared-features footer span:last-child[data-current-version]::after { content:attr(data-current-version) " ↗"; font-size:.9rem; }
+body[data-client-review-guide] #shared-features .review-status[data-client-state="approved"] { background:#293492; color:#fff; }
+body[data-client-review-guide] #shared-features .review-status[data-client-state="review"] { background:#fff1bf; color:#5b4300; }
