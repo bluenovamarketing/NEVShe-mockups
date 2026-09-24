@@ -3,7 +3,7 @@
   if (document.body.dataset.conceptRound !== 'v2.1') return;
   const id = document.body.dataset.artifactId;
   const main = document.querySelector('main');
-  const assets = '../../assets/images/';
+  const assets = new URL('../../assets/images/', location.href).href;
   const suppliedPhoto = `${assets}client-supplied/nevshe-ashe-2026-chapter-members.jpg`;
   const names = 'From left: Rich Park, Narsimha Irrinki, Ricardo Barrera, and Ismael Lopez-Ferratt at the ASHE conference.';
   const note = (label,copy) => `<div class="v2-note"><span class="v2-note-badge">${label}</span><div>${copy}</div></div>`;
