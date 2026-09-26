@@ -23,6 +23,7 @@
   }
 
   function markCardApproved(card) {
+    if (card.dataset.clientApproval === 'revision-requested') return;
     patchLink(card);
     const status = card.querySelector('.review-status');
     if (status) {
@@ -50,6 +51,32 @@
 
   function applyApprovalPresentation() {
     document.querySelectorAll('a.review-card').forEach(markCardApproved);
+
+    const requestedRevisions = document.querySelectorAll('a.review-card[data-client-approval="revision-requested"]').length;
+    if (requestedRevisions) {
+      setText(document.querySelector('.hub-hero h1'), 'NEVShe website — two content revisions ready for review.');
+      setText(
+        document.querySelector('.hub-hero .container > p'),
+        'The client-approved baselines remain preserved. Resources and News now have requested content-direction revisions; the other 15 pages and all 13 shared website features remain frozen.'
+      );
+      setHTML(
+        document.querySelector('.hub-approval-summary'),
+        '<span><strong>15</strong> pages · client approved</span><span><strong>2</strong> page revisions · review</span><span><strong>13</strong> shared features · client approved</span>'
+      );
+      setHTML(
+        document.querySelector('.client-review-guide'),
+        '<h2>Two requested page revisions</h2><p>Review the new visitor-facing News and Resources examples. Their earlier client-approved versions remain preserved until these revisions are approved.</p>'
+      );
+
+      const pageSection = document.querySelector('#review-pages');
+      if (pageSection) {
+        const heading = pageSection.querySelector('.section-heading');
+        setText(heading?.querySelector('.eyebrow'), 'Current page review');
+        setText(heading?.querySelector('h2'), 'Resources and News have requested content revisions.');
+        setText(heading?.querySelector('p'), 'Open those two cards to review realistic temporary visitor content. The other 15 page versions remain client approved and frozen.');
+      }
+      return;
+    }
 
     setText(document.querySelector('.hub-hero h1'), 'NEVShe website — client approved.');
     setText(
